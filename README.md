@@ -1,5 +1,8 @@
 # Conversor de Temperaturas
 
+<!-- badges -->
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white) ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-005F0F?style=flat-square&logo=thymeleaf&logoColor=white) ![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
+
 [Read in English](README.en.md)
 
 Aplicação web em Java e Spring Boot que converte temperaturas entre Celsius, Fahrenheit e Kelvin, com validação do zero absoluto em cada escala.
