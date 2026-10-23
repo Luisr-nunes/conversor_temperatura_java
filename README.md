@@ -1,207 +1,75 @@
 # Conversor de Temperaturas
 
-PT | [EN](#temperature-converter)
+[Read in English](README.en.md)
 
-Conversor de temperaturas online entre Celsius, Fahrenheit e Kelvin — simples, rapido e direto.
-
-## Sobre o Projeto
-
-O Conversor de Temperaturas e uma aplicacao web desenvolvida com Spring Boot para realizar conversoes entre as escalas Celsius, Fahrenheit e Kelvin.
-
-A aplicacao valida os valores informados de acordo com o zero absoluto, informa entradas invalidas e exibe o resultado formatado com duas casas decimais.
+Aplicação web em Java e Spring Boot que converte temperaturas entre Celsius, Fahrenheit e Kelvin, com validação do zero absoluto em cada escala.
 
 ## Funcionalidades
 
-- Conversao entre Celsius, Fahrenheit e Kelvin
-- Conversao entre unidades iguais
-- Validacao de entrada numerica
-- Validacao do zero absoluto em cada escala
-- Resultado formatado com duas casas decimais
-- Interface web renderizada com Thymeleaf
+- Conversão entre Celsius, Fahrenheit e Kelvin, inclusive entre unidades iguais.
+- Validação de entrada numérica.
+- Bloqueio de valores abaixo do zero absoluto: -273,15 °C, -459,67 °F e 0 K.
+- Resultado com duas casas decimais.
+- Interface renderizada no servidor com Thymeleaf.
 
-## Tecnologias Utilizadas
+## Tecnologias
 
-| Camada | Tecnologia | Descricao |
-| --- | --- | --- |
-| Linguagem | Java 17 | Implementacao da aplicacao |
-| Framework | Spring Boot 4.1.1 | Configuracao e execucao do projeto |
-| Web | Spring MVC | Controller e rotas HTTP |
-| View | Thymeleaf | Renderizacao da interface web |
-| Estilo | CSS3 | Estilizacao da pagina |
-| Build | Maven | Gerenciamento e empacotamento |
+| Camada | Tecnologia |
+| --- | --- |
+| Linguagem | Java 17 |
+| Framework | Spring Boot 4.1.1 (Web MVC, Actuator) |
+| Interface | Thymeleaf e CSS |
+| Build | Maven (Maven Wrapper incluído) |
 
-## Como Rodar o Codigo
+## Estrutura
 
-### Pre-requisitos
+```
+conversor_temperatura_java/
+├── src/main/java/br/com/exercicio/conversortemperaturas/
+│   ├── controller/TemperaturaController.java   # GET / e POST /converter
+│   ├── service/TemperaturaService.java         # fórmulas e validações
+│   └── model/TemperaturaDTO.java
+├── src/main/resources/
+│   ├── templates/conversor.html
+│   └── static/css/style.css
+├── src/test/
+├── pom.xml
+└── mvnw, mvnw.cmd
+```
 
-- JDK 17 ou superior
+## Como executar
 
-### Instalacao
+Pré-requisito: JDK 17 ou superior. O Maven não precisa estar instalado.
 
 ```bash
-# Clone o repositorio
 git clone https://github.com/Luisr-nunes/conversor_temperatura_java.git
 cd conversor_temperatura_java
+
+./mvnw spring-boot:run      # Linux/macOS
+mvnw.cmd spring-boot:run    # Windows
 ```
 
-### Desenvolvimento
+Acesse `http://localhost:8080`, informe o valor, escolha as unidades de origem e destino e clique em **Converter**.
 
-No Windows:
+Para gerar o `.jar`:
 
 ```bash
-./mvnw.cmd spring-boot:run
-```
-
-No Linux ou macOS:
-
-```bash
-./mvnw spring-boot:run
-```
-
-Depois, acesse [http://localhost:8080](http://localhost:8080).
-
-### Build de Producao
-
-```bash
-./mvnw.cmd clean package
-```
-
-O arquivo `.jar` sera gerado na pasta `target/`.
-
-## Como Usar
-
-1. Informe o valor da temperatura.
-2. Selecione a unidade de origem.
-3. Selecione a unidade de destino.
-4. Clique em **Converter**.
-
-Unidades disponiveis:
-
-- Celsius (C)
-- Fahrenheit (F)
-- Kelvin (K)
-
-## Estrutura do Projeto
-
-```text
-conversor_temperatura_java/
-|-- src/
-|   |-- main/
-|   |   |-- java/br/com/exercicio/conversortemperaturas/
-|   |   |   |-- controller/TemperaturaController.java
-|   |   |   |-- model/TemperaturaDTO.java
-|   |   |   |-- service/TemperaturaService.java
-|   |   |-- resources/
-|   |       |-- static/css/style.css
-|   |       |-- templates/conversor.html
-|   |-- test/
-|-- pom.xml
-|-- mvnw
-|-- mvnw.cmd
+./mvnw clean package
+java -jar target/conversortemperaturas-0.0.1-SNAPSHOT.jar
 ```
 
 ## Testes
 
 ```bash
-./mvnw.cmd test
+./mvnw test
 ```
 
-## English
+Hoje a suíte cobre apenas a inicialização do contexto do Spring.
 
-<a id="temperature-converter"></a>
+## Projeto relacionado
 
-# Temperature Converter
+O mesmo conversor também aparece como exercício no repositório [POO](https://github.com/Luisr-nunes/POO).
 
-PT | EN
+## Autor
 
-Online temperature converter between Celsius, Fahrenheit and Kelvin — simple, fast and direct.
-
-## About
-
-Temperature Converter is a web application built with Spring Boot to convert values between Celsius, Fahrenheit and Kelvin scales.
-
-The application validates values according to absolute zero, reports invalid input and displays results formatted to two decimal places.
-
-## Features
-
-- Conversion between Celsius, Fahrenheit and Kelvin
-- Conversion between equal units
-- Numeric input validation
-- Absolute zero validation for each scale
-- Result formatted to two decimal places
-- Thymeleaf-rendered web interface
-
-## Tech Stack
-
-| Layer | Technology | Description |
-| --- | --- | --- |
-| Language | Java 17 | Application implementation |
-| Framework | Spring Boot 4.1.1 | Project configuration and runtime |
-| Web | Spring MVC | HTTP controllers and routes |
-| View | Thymeleaf | Web interface rendering |
-| Styling | CSS3 | Page styling |
-| Build | Maven | Dependency management and packaging |
-
-## How to Run the Code
-
-### Prerequisites
-
-- JDK 17 or newer
-
-### Setup
-
-```bash
-git clone https://github.com/Luisr-nunes/conversor_temperatura_java.git
-cd conversor_temperatura_java
-```
-
-### Development
-
-On Windows:
-
-```bash
-./mvnw.cmd spring-boot:run
-```
-
-On Linux or macOS:
-
-```bash
-./mvnw spring-boot:run
-```
-
-Then open [http://localhost:8080](http://localhost:8080).
-
-### Production Build
-
-```bash
-./mvnw.cmd clean package
-```
-
-The `.jar` file will be generated in the `target/` directory.
-
-## How to Use
-
-1. Enter the temperature value.
-2. Select the source unit.
-3. Select the target unit.
-4. Click **Convert**.
-
-Available units:
-
-- Celsius (C)
-- Fahrenheit (F)
-- Kelvin (K)
-
-## Project Structure
-
-The project is organized into controllers, a data transfer object, a conversion service, Thymeleaf templates and static CSS resources.
-
-## Tests
-
-```bash
-./mvnw.cmd test
-```
-
-## Desenvolvido por
-
-Luis Nunes
+Luís Nunes — [GitHub](https://github.com/Luisr-nunes) · [LinkedIn](https://www.linkedin.com/in/luis-nunes-dev/)
